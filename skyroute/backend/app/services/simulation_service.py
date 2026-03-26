@@ -67,7 +67,7 @@ DEMO_TASKS = [
         "destination": {"lat": 40.0192, "lon": 116.4912, "alt": 5.0},
         "planned_start": "2024-01-15T14:00:00",
     },
-    # 故意冲突的两条路线
+    # 故意冲突的两条路线（正交路径，确保4D冲突）
     {
         "id": "task-conflict-001",
         "name": "朝阳路东向配送（冲突测试）",
@@ -75,19 +75,19 @@ DEMO_TASKS = [
         "task_type": "delivery",
         "priority": "normal",
         "status": "planning",
-        "origin": {"lat": 39.9300, "lon": 116.4400, "alt": 5.0},
-        "destination": {"lat": 39.9300, "lon": 116.4700, "alt": 5.0},
+        "origin": {"lat": 39.9300, "lon": 116.4400, "alt": 60.0},
+        "destination": {"lat": 39.9300, "lon": 116.4700, "alt": 60.0},
         "planned_start": "2024-01-15T11:00:00",
     },
     {
         "id": "task-conflict-002",
-        "name": "朝阳路西向配送（冲突测试）",
+        "name": "朝阳路交叉配送（冲突测试）",
         "drone_id": "drone-007",
         "task_type": "delivery",
         "priority": "normal",
         "status": "planning",
-        "origin": {"lat": 39.9310, "lon": 116.4700, "alt": 5.0},
-        "destination": {"lat": 39.9310, "lon": 116.4400, "alt": 5.0},
+        "origin": {"lat": 39.9302, "lon": 116.4400, "alt": 60.0},
+        "destination": {"lat": 39.9302, "lon": 116.4700, "alt": 60.0},
         "planned_start": "2024-01-15T11:00:00",
     },
 ]

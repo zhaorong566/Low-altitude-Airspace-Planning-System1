@@ -1,0 +1,131 @@
+{
+  "type": "FeatureCollection",
+  "name": "北京噪音敏感区域",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ns-001",
+        "name": "朝阳医院",
+        "type": "hospital",
+        "radius_m": 300,
+        "noise_limit_db": 40,
+        "time_restriction": "全天",
+        "color": "#4169e1",
+        "description": "医院区域严格限制噪音，全天候管控"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.4533, 39.9221]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ns-002",
+        "name": "北京第二实验小学",
+        "type": "school",
+        "radius_m": 200,
+        "noise_limit_db": 45,
+        "time_restriction": "07:00-18:00",
+        "color": "#2196f3",
+        "description": "学校上课时间禁止低空飞越"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.3958, 39.9168]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ns-003",
+        "name": "朝阳居民密集区",
+        "type": "residential",
+        "radius_m": 500,
+        "noise_limit_db": 50,
+        "time_restriction": "22:00-07:00",
+        "color": "#1890ff",
+        "description": "夜间禁止低空飞行，白天限速"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [116.4450, 39.9360],
+          [116.4730, 39.9360],
+          [116.4730, 39.9500],
+          [116.4450, 39.9500],
+          [116.4450, 39.9360]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ns-004",
+        "name": "三里屯居民区",
+        "type": "residential",
+        "radius_m": 400,
+        "noise_limit_db": 55,
+        "time_restriction": "22:00-08:00",
+        "color": "#1890ff",
+        "description": "三里屯周边居民区夜间管控"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.4547, 39.9368]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ns-005",
+        "name": "望京居民密集区",
+        "type": "residential",
+        "radius_m": 600,
+        "noise_limit_db": 50,
+        "time_restriction": "22:00-07:00",
+        "color": "#1890ff",
+        "description": "望京高密度居住区低空管控"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.4731, 40.0047]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ns-006",
+        "name": "北京协和医学院附属医院",
+        "type": "hospital",
+        "radius_m": 350,
+        "noise_limit_db": 40,
+        "time_restriction": "全天",
+        "color": "#4169e1",
+        "description": "协和医院外科手术区严格噪音管控"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.4194, 39.9055]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ns-007",
+        "name": "海淀区高校集中区",
+        "type": "school",
+        "radius_m": 800,
+        "noise_limit_db": 45,
+        "time_restriction": "08:00-22:00",
+        "color": "#2196f3",
+        "description": "北大清华等高校集中区域"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.3104, 40.0024]
+      }
+    }
+  ]
+}
