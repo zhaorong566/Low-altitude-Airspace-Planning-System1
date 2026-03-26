@@ -28,6 +28,8 @@ class PathPlanner:
     在体素空间中寻找从起点到终点的最优路径
     """
 
+    MAX_ITERATIONS = 100000  # A*搜索最大迭代次数，可按场景调整
+
     def __init__(
         self,
         voxel_space: VoxelSpace,
@@ -119,7 +121,7 @@ class PathPlanner:
         heapq.heappush(open_set, PQNode(h, *start, 0.0, None))
         came_from[start] = None
 
-        max_iterations = 50000
+        max_iterations = self.MAX_ITERATIONS
         iterations = 0
 
         while open_set and iterations < max_iterations:
