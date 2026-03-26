@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #0a0e1a;
+  --color-panel: #111827;
+  --color-card: #1a2235;
+  --color-border: #2a3a55;
+  --color-primary: #1890ff;
+  --color-success: #52c41a;
+  --color-warning: #faad14;
+  --color-danger: #ff4d4f;
+  --color-text: #e0e6f0;
+  --color-text-sub: #8b9bb4;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+.sky-panel {
+  background: rgba(17, 24, 39, 0.95);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.sky-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.sky-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-sub);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.badge-executing { background: rgba(24, 144, 255, 0.2); color: #1890ff; }
+.badge-pending { background: rgba(250, 173, 20, 0.2); color: #faad14; }
+.badge-approved { background: rgba(82, 196, 26, 0.2); color: #52c41a; }
+.badge-emergency { background: rgba(255, 77, 79, 0.2); color: #ff4d4f; }
+.badge-completed { background: rgba(140, 140, 140, 0.2); color: #8c8c8c; }
+.badge-failed { background: rgba(255, 77, 79, 0.2); color: #ff4d4f; }
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.el-button--primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.el-dialog {
+  background: var(--color-panel) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.el-dialog__title {
+  color: var(--color-text) !important;
+}
