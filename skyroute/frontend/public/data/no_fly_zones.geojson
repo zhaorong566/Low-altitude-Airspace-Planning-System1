@@ -1,0 +1,138 @@
+{
+  "type": "FeatureCollection",
+  "name": "北京低空禁飞区",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nfz-001",
+        "name": "首都国际机场禁飞区",
+        "type": "airport",
+        "radius_m": 5000,
+        "alt_min": 0,
+        "alt_max": 300,
+        "severity": "critical",
+        "color": "#ff0000",
+        "description": "首都国际机场5公里禁飞范围"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.5877, 40.0799]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nfz-002",
+        "name": "中南海核心禁飞区",
+        "type": "government",
+        "radius_m": 2000,
+        "alt_min": 0,
+        "alt_max": 200,
+        "severity": "critical",
+        "color": "#ff0000",
+        "description": "中央政务区禁飞范围"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.3835, 39.9197]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nfz-003",
+        "name": "天安门广场禁飞区",
+        "type": "government",
+        "radius_m": 1500,
+        "alt_min": 0,
+        "alt_max": 200,
+        "severity": "critical",
+        "color": "#ff0000",
+        "description": "天安门广场及周边禁飞范围"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [116.3875, 39.8982],
+          [116.4075, 39.8982],
+          [116.4075, 39.9102],
+          [116.3875, 39.9102],
+          [116.3875, 39.8982]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nfz-004",
+        "name": "国贸商务核心区",
+        "type": "restricted",
+        "radius_m": 800,
+        "alt_min": 0,
+        "alt_max": 150,
+        "severity": "high",
+        "color": "#ff4500",
+        "description": "国贸CBD低空管控区"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.4607, 39.9090]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nfz-005",
+        "name": "朝阳公园禁飞区",
+        "type": "park",
+        "radius_m": 600,
+        "alt_min": 0,
+        "alt_max": 120,
+        "severity": "medium",
+        "color": "#ff6600",
+        "description": "朝阳公园人员密集区禁飞"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.4814, 39.9357]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nfz-006",
+        "name": "北京大兴国际机场管控区",
+        "type": "airport",
+        "radius_m": 7000,
+        "alt_min": 0,
+        "alt_max": 300,
+        "severity": "critical",
+        "color": "#ff0000",
+        "description": "大兴国际机场管控空域"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.4105, 39.5093]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nfz-007",
+        "name": "鸟巢奥体中心禁飞区",
+        "type": "stadium",
+        "radius_m": 500,
+        "alt_min": 0,
+        "alt_max": 100,
+        "severity": "medium",
+        "color": "#ff8c00",
+        "description": "奥体中心赛事期间禁飞"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.3958, 39.9929]
+      }
+    }
+  ]
+}
