@@ -89,6 +89,7 @@ onUnmounted(() => {
   flex: 1;
   position: relative;
   overflow: hidden;
+   height: 100%;
 }
 .right-panel {
   width: 360px;

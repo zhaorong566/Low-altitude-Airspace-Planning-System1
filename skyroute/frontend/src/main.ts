@@ -7,6 +7,9 @@ import App from './App.vue'
 import router from './router'
 import './assets/main.css'
 
+import { Ion } from 'cesium'
+Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkODg4MmNkMy02YzVjLTQ2ZDItYThiYy03MmNjNTk5ZWRmYzciLCJpZCI6NDA0NTMyLCJpYXQiOjE3NzM2NjcyNDl9.FySpItA3WmgjP7dZvTquwoujQ1IbqZa72VadnCd3rmI'
+
 const app = createApp(App)
 const pinia = createPinia()
 

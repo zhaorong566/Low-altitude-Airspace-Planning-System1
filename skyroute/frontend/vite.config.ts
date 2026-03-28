@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import cesium from 'vite-plugin-cesium'
+import cesium from 'vite-plugin-cesium-build'
 import { resolve } from 'path'
 
 export default defineConfig({

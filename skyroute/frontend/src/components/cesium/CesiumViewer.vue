@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useTaskStore } from '@/stores/useTaskStore'
 import { useDroneStore } from '@/stores/useDroneStore'
 import { useRouteStore } from '@/stores/useRouteStore'
@@ -14,13 +14,14 @@ const viewer = ref<any>(null)
 const isReady = ref(false)
 const errorMsg = ref('')
 
-// Track entities for cleanup
 const routeEntities = new Map<string, any[]>()
 const droneEntities = new Map<string, any>()
 let conflictEntities: any[] = []
 let animationFrame: number | null = null
 
 onMounted(async () => {
+  await nextTick()
+  await new Promise(resolve => setTimeout(resolve, 200))
   await initCesium()
 })
 
@@ -33,9 +34,8 @@ onUnmounted(() => {
 
 async function initCesium() {
   try {
-    // Dynamic import to handle Cesium
     const Cesium = await import('cesium')
-    
+
     const container = document.getElementById(viewerId)
     if (!container) return
 
@@ -55,10 +55,15 @@ async function initCesium() {
       msaaSamples: 4,
     })
 
-    // Style adjustments
+    viewer.value.imageryLayers.removeAll()
+    viewer.value.imageryLayers.addImageryProvider(
+      new Cesium.OpenStreetMapImageryProvider({
+        url: 'https://tile.openstreetmap.org/'
+      })
+    )
+
     viewer.value.scene.backgroundColor = Cesium.Color.fromCssColorString('#0a0e1a')
 
-    // Fly to Beijing Chaoyang
     viewer.value.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(116.46, 39.93, 8000),
       orientation: {
@@ -72,7 +77,13 @@ async function initCesium() {
     isReady.value = true
     renderAll(Cesium)
 
-    // Watch for data changes
+    // 强制 Cesium 重新计算画布尺寸
+    window.dispatchEvent(new Event('resize'))
+    setTimeout(() => {
+      viewer.value?.resize()
+      window.dispatchEvent(new Event('resize'))
+    }, 300)
+
     watch(() => taskStore.tasks, () => renderAll(Cesium), { deep: true })
     watch(() => droneStore.positions, () => updateDrones(Cesium), { deep: true })
     watch(() => routeStore.conflicts, () => renderConflicts(Cesium), { deep: true })
@@ -90,7 +101,6 @@ function renderAll(Cesium: any) {
 
 function renderRoutes(Cesium: any) {
   if (!viewer.value) return
-  // Clear old route entities
   routeEntities.forEach((entities) => {
     entities.forEach(e => viewer.value.entities.remove(e))
   })
@@ -105,7 +115,6 @@ function renderRoutes(Cesium: any) {
       Cesium.Cartesian3.fromDegrees(wp.lon, wp.lat, wp.alt)
     )
 
-    // Route polyline
     const routeEntity = viewer.value.entities.add({
       polyline: {
         positions,
@@ -119,7 +128,6 @@ function renderRoutes(Cesium: any) {
     })
     entities.push(routeEntity)
 
-    // Origin/destination markers
     const originEntity = viewer.value.entities.add({
       position: Cesium.Cartesian3.fromDegrees(task.origin.lon, task.origin.lat, task.origin.alt + 5),
       point: {
@@ -163,7 +171,7 @@ function updateDrones(Cesium: any) {
   if (!viewer.value) return
   droneStore.positions.forEach((pos, droneId) => {
     const position = Cesium.Cartesian3.fromDegrees(pos.lon, pos.lat, pos.alt)
-    
+
     if (droneEntities.has(droneId)) {
       const entity = droneEntities.get(droneId)
       entity.position = position
@@ -271,7 +279,6 @@ function renderNoFlyZones(Cesium: any) {
       <el-icon><Warning /></el-icon>
       <span>{{ errorMsg }}</span>
     </div>
-    <!-- Map overlay legend -->
     <div class="map-legend">
       <div class="legend-item"><span class="dot" style="background:#1890ff"></span>配送航线</div>
       <div class="legend-item"><span class="dot" style="background:#ff4d4f"></span>紧急航线</div>

@@ -12,7 +12,7 @@ numpy==1.26.3
 scipy==1.11.4
 networkx==3.2.1
 shapely==2.0.2
-httpx==0.26.1
+httpx==0.26.0
 python-dotenv==1.0.0
 aiofiles==23.2.1
 python-multipart==0.0.22
